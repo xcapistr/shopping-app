@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1148,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPid": 8831,
+  "expoServerNgrokUrl": "https://ny-p2a.xcapistr.shopping-app.exp.direct",
+  "packagerNgrokUrl": "https://packager.ny-p2a.xcapistr.shopping-app.exp.direct",
+  "ngrokPid": 8848
 }
