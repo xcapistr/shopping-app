@@ -1,8 +1,8 @@
 {
   "hostType": "lan",
   "lanType": "ip",
-  "dev": true,
-  "minify": false,
-  "urlRandomness": "ny-p2a",
+  "dev": false,
+  "minify": true,
+  "urlRandomness": "su-uxc",
   "https": false
 }
