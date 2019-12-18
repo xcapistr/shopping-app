@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, Button, Platform,Alert } from 'react-native'
+import { FlatList, Button, Platform, Alert, View, Text } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 
@@ -14,14 +14,27 @@ const UserProductsScreen = props => {
   const editProductHandler = id => {
     props.navigation.navigate('EditProduct', { productId: id })
   }
-  const deleteHandler = (id) => {
+  const deleteHandler = id => {
     Alert.alert('Are you sure?', 'Do you realy want to delete this item?', [
-      {text: 'No', style: 'default'},
-      {text: 'Yes', style: 'destructive', onPress: ()=>{
-        dispatch(productsActions.deleteProduct(id))
-      }}
+      { text: 'No', style: 'default' },
+      {
+        text: 'Yes',
+        style: 'destructive',
+        onPress: () => {
+          dispatch(productsActions.deleteProduct(id))
+        }
+      }
     ])
   }
+
+  if (userProducts.length === 0) {
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text>No products found, maybe start creating some</Text>
+      </View>
+    )
+  }
+
   return (
     <FlatList
       data={userProducts}
@@ -45,7 +58,9 @@ const UserProductsScreen = props => {
           <Button
             color={Colors.primary}
             title="Delete"
-            onPress={()=>{deleteHandler(itemData.item.id)}}
+            onPress={() => {
+              deleteHandler(itemData.item.id)
+            }}
           />
         </ProductItem>
       )}
